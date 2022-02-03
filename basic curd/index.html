@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Crud Operation</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1 class="text-center">EmployeeDB</h1>
+
+    <!-- Button trigger modal -->
+    <div class="text-center mt-3">
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+</div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Employee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form autocomplete="off" onsubmit="onFormSubmit()">
+                        <div>
+                            <label>Name:</label>
+                            <input type="text" name="productCode" id="inname">
+                        </div>
+                        <div>
+                            <label>Salary:</label>
+                            <input type="number" name="product" id="insalary">
+                        </div>
+                        <div>
+                            <label>Phoneno:</label>
+                            <input type="number" name="qty" id="inno">
+                        </div>
+
+
+                        <div class="form_action--button modal-footer">
+                            <input type="submit" class="btn btn-warning" value="Submit">                            <input type="reset" class="btn btn-secondary" value="Reset">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+   
+    <br>
+    <br>
+    <table class="list table container table-bordered" id="storeList">
+        <thead class="container">
+            <tr class="text-center">
+                <th>Name</th>
+                <th>Salary</th>
+                <th>Phoneno</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    </td>
+    </td>
+    </tr>
+    </table>
+
+
+
+    <div id="demo"></div>
+    <script type="text/javascript" src="/basic curd/script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
