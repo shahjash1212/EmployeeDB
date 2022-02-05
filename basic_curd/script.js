@@ -17,7 +17,7 @@ for(var i=0;i<myArr.length;i++)
     var cell3 = newRow.insertCell(2);
         cell3.innerHTML = obj["inno"];
     var cell5 = newRow.insertCell(3);
-        cell5.innerHTML = `<button onClick='onEdit(this)'>Edit</button> <button onClick='deleteData(${i})'>Delete</button>`
+        cell5.innerHTML = `<button onClick='onEdit(${i})'>Edit</button> <button onClick='deleteData(${i})'>Delete</button>`
 
 }
 
@@ -71,18 +71,35 @@ function insertNewRecord(data){
 
 //Edit the data
 function onEdit(td){
-    selectedRow = td.parentElement.parentElement;
+    console.log(td);
+   var empobj= myArr[td];
+    console.log(myArr[td]);
+    // myArr[]
+    $('#modal2').modal('show');
    
-    document.getElementById('inname').value = selectedRow.cells[0].innerHTML;
-    document.getElementById('insalary').value = selectedRow.cells[1].innerHTML;
-    document.getElementById('inno').value = selectedRow.cells[2].innerHTML;
+    console.log($('#modal2').modal('show'));
+
+    document.getElementById('resetn').value = empobj.inname;
+    document.getElementById('resets').value = empobj.insalary;
+    document.getElementById('resetp').value = empobj.inno;
+    document.getElementById('hid').value = td;
+        
     
 }
 
-function updateRecord(formData){
-    selectedRow.cells[0].innerHTML = formData.inname;
-    selectedRow.cells[1].innerHTML = formData.insalary;
-    selectedRow.cells[2].innerHTML = formData.inno;
+function updateRecord(i){
+
+   var id =document.getElementById('hid').value;
+   console.log(id);
+
+   myArr[id].inname = document.getElementById('resetn').value;
+   myArr[id].insalary = document.getElementById('resets').value;
+   myArr[id].inno = document.getElementById('resetp').value;
+   console.log(myArr);
+
+   localStorage.setItem('formData',JSON.stringify(myArr));
+
+    return true;
     
 }
 
@@ -95,6 +112,9 @@ function updateRecord(formData){
 // }
 
 function deleteData(i){
+
+    var result = confirm ("are youo sure to delete this??");
+    if(result){
     console.log(i);
 	myArr=JSON.parse(localStorage.getItem('formData'));
 	myArr.splice(i,1);
@@ -103,7 +123,7 @@ function deleteData(i){
     
     console.log(myArr);
 	localStorage.setItem('formData',JSON.stringify(myArr));
-
+    }
 }
 
 //Reset the data
