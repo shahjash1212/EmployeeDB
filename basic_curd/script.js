@@ -2,7 +2,7 @@ let id='1';
 let myArr=JSON.parse(localStorage.getItem("formData")) || [];
 
 // var getlocalStorageData = localStorage.getItem("formData");
-console.log(myArr);
+//console.log(myArr);
 
 for(var i=0;i<myArr.length;i++)
 {
@@ -17,7 +17,7 @@ for(var i=0;i<myArr.length;i++)
     var cell3 = newRow.insertCell(2);
         cell3.innerHTML = obj["inno"];
     var cell5 = newRow.insertCell(3);
-        cell5.innerHTML = `<button onClick='onEdit(this)'>Edit</button> <button onClick='onDelete(this)'>Delete</button>`
+        cell5.innerHTML = `<button onClick='onEdit(this)'>Edit</button> <button onClick='deleteData(${i})'>Delete</button>`
 
 }
 
@@ -66,7 +66,7 @@ function insertNewRecord(data){
     var cell3 = newRow.insertCell(2);
         cell3.innerHTML = data.inno;
     var cell5 = newRow.insertCell(3);
-        cell5.innerHTML = `<button onClick='onEdit(this)'>Edit</button> <button id onClick='onDelete(this.id)'>Delete</button>`
+        cell5.innerHTML = `<button onClick='onEdit(this)'>Edit</button> <button id onClick="deleteData(${i})">Delete</button>`
 }
 
 //Edit the data
@@ -87,14 +87,23 @@ function updateRecord(formData){
 }
 
 //Delete the data
-function onDelete(id){
-    if(confirm('Do you want to delete this record?')){
-        row = td.parentElement.parentElement;
-        document.getElementById('storeList').deleteRow(row.rowIndex);
-    }
-    myArr.slice(id,1);
-    localStorage.setItem('formData',JSON.stringify(myArr));
+// function onDelete(td){
+//     if(confirm('Do you want to delete this record?')){
+//         row = td.parentElement.parentElement;
+//         document.getElementById('storeList').deleteRow(row.rowIndex);
+//     } 
+// }
+
+function deleteData(i){
+    console.log(i);
+	myArr=JSON.parse(localStorage.getItem('formData'));
+	myArr.splice(i,1);
+	
     location.reload();
+    
+    console.log(myArr);
+	localStorage.setItem('formData',JSON.stringify(myArr));
+
 }
 
 //Reset the data
