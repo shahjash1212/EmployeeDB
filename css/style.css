@@ -24,8 +24,10 @@ body{
     color:rgb(233, 202, 87);
 }
 #heading{
-    background-color: rgb(233, 202, 87);
+    /* background-color: rgb(233, 202, 87); */
     border-radius: 15px;
+    color:rgb(33, 33, 33);
+
 }
 
 table{
